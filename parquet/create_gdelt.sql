@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS gdelt;
 
 CREATE TABLE gdelt LIKE gdelt_dailyupdates_raw STORED AS PARQUETFILE;
 
-INSERT INTO gdelt SELECT  
+INSERT INTO TABLE gdelt SELECT  
  GLOBALEVENTID, 
  SQLDATE, 
  MonthYear, 
@@ -198,7 +198,7 @@ INSERT INTO gdelt SELECT
  "" as SOURCEURL
 FROM gdelt_historical_raw;
  
-INSERT INTO TABLE gdelt_dailyupdates SELECT * FROM gdelt_dailyupdates_raw;
+INSERT INTO TABLE gdelt SELECT * FROM gdelt_dailyupdates_raw;
 
 
 
